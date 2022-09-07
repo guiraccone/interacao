@@ -84,17 +84,36 @@ function carregarCurso() {
 function preencherDadosTabela(data) {
     let tableData = "";
     for (const linha of data) {
-        let urlSearch = "id_curso=" + linha.id_curso + "&curso=" + 
-        linha.nome + "&duracao=" + 
-        linha.duracao + "&instituicao=" + 
-        linha.instituicao;
+        let urlSearch = "id_curso=" + linha.id_curso + "&nome=" +
+            linha.nome + "&duracao=" +
+            linha.duracao + "&instituicao=" +
+            linha.instituicao;
         tableData += ''
             + '<tr>'
             + '<td>' + linha.id_curso + '</td>'
             + '<td><a href="./editarCursos.html?' + urlSearch + '">' + linha.nome + '</a></td>'
             + '<td>' + linha.duracao + '</td>'
             + '<td>' + linha.instituicao + '</td>'
+            + '<td><button onclick="excluirCurso(' + linha.id_curso + ')">Excluir</button></td>'
             + '</tr>'
     }
     document.getElementById('tableData').innerHTML = tableData;
+}
+
+function excluirCurso(id_curso) {
+    $.ajax({
+        type: "DELETE",
+        url: URL_BASE + "/curso/" + id_curso,
+        headers: {
+            "Authorization": "Bearer " + loginToken
+        },
+        success: function (data) {
+            location.reload();
+        },
+        error: function (data) {
+            console.log("Erro " + data);
+        },
+        contentType: "application/json",
+        dataType: "json"
+    })
 }
