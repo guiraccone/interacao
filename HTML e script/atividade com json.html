@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de itens</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <button type="button" class="btn btn-primary" onclick="imprimir()">Imprimir</button>
+
+        <br>
+
+        <h3>Empresa</h3>
+        <p id="dados_empresa"></p>
+        <h3>Setor</h3>
+        <p id="dados_setor"></p>
+        <h3>Responsável</h3>
+        <p id="dados_responsavel"></p>
+
+        <br><br>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Produto Estoque</th>
+                    <th scope="col">Quantidades</th>
+                </tr>
+            </thead>
+            <tbody id="itensTabela">
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        let dados = {
+            "empresa": "Senai",
+            "setor": "Almoxarifado",
+            "responsavel": "Fulano",
+            "produtos": {
+                "estoque": [
+                    { "name": "parafuso", "quantidade": 10 },
+                    { "name": "broca", "quantidade": 15 },
+                    { "name": "alicate", "quantidade": 20 }
+                ],
+
+                "compra": [
+                    { "name": "monitor", "quantidade": 5 },
+                    { "name": "cabo de rede", "quantidade": 23 }
+                ]
+            }
+        }
+
+        function imprimir() {
+            let produtosEstoque = dados.produtos.estoque;
+            let produtosCompra = dados.produtos.compra;
+            let itensTabela = "";
+
+            document.getElementById("dados_empresa").innerHTML = dados.empresa
+            document.getElementById("dados_setor").innerHTML = dados.setor
+            document.getElementById("dados_responsavel").innerHTML = dados.responsavel
+
+            for (let c in produtosEstoque) {
+                itensTabela += ""
+                    + '<tr>'
+                    + '<td>' + produtosEstoque[c].name + '</td>'
+                    + '<td>' + produtosEstoque[c].quantidade + '</td>'
+                    + '</tr>';
+                document.getElementById("itensTabela").innerHTML = itensTabela;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

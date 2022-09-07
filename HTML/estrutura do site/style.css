@@ -1,0 +1,31 @@
+
+table, th, td {
+    border: solid 1px rgb(0, 0, 0);
+    width: 500px;
+    border-collapse: collapse;
+    color: blue;
+    background-color: white;
+}
+
+.gradient-custom {
+    background: #6a11cb;
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+
+nav {
+    text-align: center;
+    background-color: turquoise;
+    border-bottom: solid black;
+}
+
+
+#linha {
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    border-color: black;
+}
+
+.token{
+    width: 500px;
+}

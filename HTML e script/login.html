@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="submit" onclick="imprimirOlaMundo()">Olá</button>
+    <br>
+    <br>
+    <label for="login_email">Email</label>
+    <input type="text" id="login_email">
+
+    <br><br><br>
+
+    <label for="login_senha">Senha</label>
+    <input type="password" id="login_senha">
+    <br>
+    <br>
+    <button type="button" onclick="fazerLogin()">Login</button>
+    <script>
+        function imprimirOlaMundo() {
+            console.log("Olá mundo");
+        }
+
+        function fazerLogin() {
+            let email = document.getElementById("login_email").value;
+            let senha = document.getElementById("login_senha").value;
+
+            console.log("O seu email é " + email);
+            console.log("A sua senha é " + senha);
+        }
+    </script>
+</body>
+
+</html>

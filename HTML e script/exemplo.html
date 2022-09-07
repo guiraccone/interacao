@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo">Aqui e um paragrafo</p>
+
+    <button type="button" onclick="mudarParagrafo()">Mudar o parágrafo</button>
+    <button type="button" onclick="voltarTexto()">Voltar</button>
+    <button type="button" onclick="olaConsole()">Enviar olá para o console.log</button>
+
+    <hr>
+
+    <h5>Somando valor 5 com valor 6</h5>
+    <button type="button" onclick="somarVal()">Calcular</button>
+    <p id="resultadoCalculo">Resposta: </p>
+    <br>
+    <hr>
+    <input type="number" id="valor1">
+    <br>
+    <button type="button" onclick="getValor1()">Imprimir valor 1</button>
+    <script>
+        function mudarParagrafo() {
+
+            document.getElementById("demo").innerHTML = "paragrafo mudado com sucesso";
+        }
+
+        function voltarTexto() {
+            document.getElementById("demo").innerHTML = "Aqui e um paragrafo";
+        }
+        function olaConsole() {
+            console.log("Olá console.log");
+        }
+
+        function somarVal() {
+            let resultado = 5 + 6;
+            let nome = "guiracc";
+            let mensagemFinal = "";
+            mensagemFinal = nome + " o resultado do calculo é  =" + resultado;
+            console.log("Resposta: ") + resultado;
+            document.getElementById("resultadoCalculo").innerHTML = mensagemFinal;
+        }
+
+        function getValor1() {
+            let valor1 = document.getElementById("valor1").value;
+            console.log (valor1); 
+        }
+    </script>
+</body>
+
+</html>
